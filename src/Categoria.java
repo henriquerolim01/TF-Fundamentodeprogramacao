@@ -9,4 +9,21 @@ public class Categoria {
         this.nome = nome;
         this.tipo = tipo;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nNome: " + nome + "\nTipo: " + tipo;
+    }    
 }
