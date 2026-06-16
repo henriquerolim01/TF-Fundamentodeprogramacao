@@ -8,7 +8,7 @@
 |---|---|
 |Guilherme Machado|          |
 |Henrique Rolim   |25280332  |
-|Rodrigo Bacchin  |          |
+|Rodrigo Bacchin  |25200604  |
 
 ## Descrição
 Projeto desenvolvido para a disciplina de Fundamentos de Programação, com o objetivo de auxiliar usuários no controle de receitas e despesas, permitindo o gerenciamento financeiro de forma simples e organizada.
