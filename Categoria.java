@@ -1,12 +1,12 @@
 public class Categoria {
     private String nome;
-    private int tipo;
+    private String tipo;
     private String observacoes;
 
     public Categoria(){
 
     }
-    public Categoria(String nome, int tipo, String observacoes){
+    public Categoria(String nome, String tipo, String observacoes){
         this.nome = nome;
         this.tipo = tipo;
         this.observacoes = observacoes;
@@ -14,7 +14,7 @@ public class Categoria {
     public String getNome(){
         return nome;
     }
-    public int getTipo(){
+    public String getTipo(){
         return tipo;
     }
     public String getObservacoes(){
@@ -23,14 +23,14 @@ public class Categoria {
     public void setNome(String nome){
         this.nome = nome;
     }
-    public void setTipo(int tipo){
+    public void setTipo(String tipo){
         this.tipo = tipo;
     }
     public void setObservacoes(String observacoes){
         this.observacoes = observacoes;
     }
-    public String toString(){
-        return "depois eu escrevo 2";
+    @Override
+    public String toString() {
+         return "Nome: " + nome + "\nTipo: " + tipo + "\nObservações: " + observacoes;
     }
-    
 }
