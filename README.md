@@ -6,7 +6,7 @@
 ## Integrantes
 |Integrantes     |Matrícula |
 |---|---|
-|Guilherme Machado|          |
+|Guilherme Machado|24200740  |
 |Henrique Rolim   |25280332  |
 |Rodrigo Bacchin  |25200604  |
 
@@ -25,6 +25,7 @@ Projeto desenvolvido para a disciplina de Fundamentos de Programação, com o ob
 ```bash
 git pull origin main
 ```
+Isso evita conflitos com alterações feitas por outros integrantes.
 
 ### 2. Entrar na pasta do código
 ```bash
@@ -50,10 +51,3 @@ git add .
 git commit -m "Descrição da alteração"
 git push origin main
 ```
-
-### 6. Atualizar antes de continuar
-Sempre execute antes de começar a programar:
-```bash
-git pull origin main
-```
-Isso evita conflitos com alterações feitas por outros integrantes.
