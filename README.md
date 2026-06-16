@@ -1,4 +1,4 @@
-# Trabalho Final - Fundamentos de Programacao
+# Trabalho Final - Fundamentos de Programação
 #### Turma 034 - 2026/1
 #### Disciplina: Fundamentos de Programação
 #### Professora: Aline Campos
