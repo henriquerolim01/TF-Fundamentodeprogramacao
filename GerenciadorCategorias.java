@@ -70,4 +70,48 @@ public class GerenciadorCategorias {
 
         return null;
     }
+
+    public void editarCategoria(Scanner entrada) {
+
+        if (qtdCategorias == 0) {
+            System.out.println("Nenhuma categoria cadastrada.");
+            return;
+        }
+
+        System.out.print("Digite o nome da categoria que deseja editar: ");
+        String nome = entrada.nextLine();
+
+        Categoria categoria = buscarCategoria(nome);
+
+        if (categoria == null) {
+            System.out.println("Categoria não encontrada.");
+            return;
+        }
+
+        System.out.print("Novo nome: ");
+        String novoNome = entrada.nextLine();
+
+        // Verifica se tem duplicidade
+        for (int i = 0; i < qtdCategorias; i++) {
+
+            if (categorias[i].getNome().equalsIgnoreCase(novoNome)
+                    && categorias[i] != categoria) {
+
+                System.out.println("Já existe uma categoria com esse nome.");
+                return;
+            }
+        }
+
+        System.out.print("Novo tipo (Receita ou Despesa): ");
+        String novoTipo = entrada.nextLine();
+
+        System.out.print("Novas observações: ");
+        String novasObservacoes = entrada.nextLine();
+
+        categoria.setNome(novoNome);
+        categoria.setTipo(novoTipo);
+        categoria.setObservacoes(novasObservacoes);
+
+        System.out.println("Categoria editada com sucesso!");
+    }
 }
