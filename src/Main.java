@@ -38,8 +38,18 @@ public class Main {
 
                 case 3:
                     System.out.println("Cadastro de Movimentação");
+
                     int idMov = qtdMovimentacoes+1; 
-                    System.out.println("Insira");
+                    int valor;
+
+                    System.out.println("Insira o valor");
+                    if (entrada.hasNextDouble()) {
+                        valor = entrada.nextDouble();
+                    } else {
+                        System.out.println("Valor inválido! Cadastro cancelado.");
+                        entrada.next(); // limpa a entrada inválida 
+                        break; 
+                    }
 
                     break;
 
