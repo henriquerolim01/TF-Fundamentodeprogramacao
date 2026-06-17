@@ -1,15 +1,17 @@
+import java.time.LocalDate;
+
 public class Movimentacao {
 
     private int id;
     private String descricao;
     private double valor;
-    private String data;
+    private LocalDate data;
 
     private Usuario usuario;
     private Categoria categoria;
 
     public Movimentacao(int id, String descricao, double valor,
-                        String data, Usuario usuario,
+                        LocalDate data, Usuario usuario,
                         Categoria categoria) {
 
         this.id = id;

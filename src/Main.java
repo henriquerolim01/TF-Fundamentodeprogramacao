@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Main {
 
@@ -40,7 +41,11 @@ public class Main {
                     System.out.println("Cadastro de Movimentação");
 
                     int idMov = qtdMovimentacoes+1; 
-                    int valor;
+                    double valor;
+                    LocalDate data = LocalDate.now();
+                    int categoriaSelec =-1;
+                    String descricao = "";
+                    //Conta - Conta que user logou
 
                     System.out.println("Insira o valor");
                     if (entrada.hasNextDouble()) {
@@ -50,6 +55,16 @@ public class Main {
                         entrada.next(); // limpa a entrada inválida 
                         break; 
                     }
+
+                    //listar categorias (a definir se em loop do array do main ou chamada de função)
+                    //escolher categoria com base nisso
+                    
+                    System.out.println("Insira uma descrição");
+                    entrada.nextLine(); //limpar o \n do nextDouble()
+                    descricao = entrada.nextLine();
+
+                    /*Movimentacao mov = new Movimentacao(int idMov, String descricao, double valor,
+                    LocalDate data, Conta conta, Categoria categ);*/
 
                     break;
 
