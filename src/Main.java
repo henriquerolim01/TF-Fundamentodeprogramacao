@@ -4,6 +4,8 @@ public class Main {
 
     private static Categoria[] categorias = new Categoria[20];
     private static int qtdCategorias = 0;
+    private static Movimentacao[] movimentacoes = new Movimentacao[30];
+    private static int qtdMovimentacoes = 0;
 
     public static void main(String[] args) {
 
@@ -36,6 +38,9 @@ public class Main {
 
                 case 3:
                     System.out.println("Cadastro de Movimentação");
+                    int idMov = qtdMovimentacoes+1; 
+                    System.out.println("Insira");
+
                     break;
 
                 case 4:
