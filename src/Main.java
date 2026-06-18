@@ -45,7 +45,7 @@ public class Main {
                     LocalDate data = LocalDate.now();
                     int categoriaSelec =-1;
                     String descricao = "";
-                    //Conta - Conta que user logou
+                    //Usuario user- usuario que user logou
 
                     System.out.println("Insira o valor");
                     if (entrada.hasNextDouble()) {
@@ -64,8 +64,17 @@ public class Main {
                     descricao = entrada.nextLine();
 
                     /*Movimentacao mov = new Movimentacao(int idMov, String descricao, double valor,
-                    LocalDate data, Conta conta, Categoria categ);*/
+                    LocalDate data, Usuario user, Categoria categ);*/
+                    
+                    /*for (int i = 0; i < movimentacoes.length; i++) {
+                        if (movimentacoes[i] == null) {
+                            movimentacoes[i] = mov;
+                            break;
+                        }
+                    }
 
+                    System.out.println("Erro. Você atingiu o seu limite de cadastros.");
+                        */
                     break;
 
                 case 4:
