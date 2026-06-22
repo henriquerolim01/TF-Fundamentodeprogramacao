@@ -9,4 +9,23 @@ public class Usuario {
         this.nome = nome;
         this.idade = idade;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id +
+               "\nNome: " + nome +
+               "\nIdade: " + idade;
+    }
 }
