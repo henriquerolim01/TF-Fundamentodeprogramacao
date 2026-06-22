@@ -38,43 +38,54 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Cadastro de Movimentação");
+                    System.out.println("\n=== CADASTRO DE MOVIMENTAÇÃO ===");
 
-                    int idMov = qtdMovimentacoes+1; 
+                    if (qtdMovimentacoes >= movimentacoes.length) {
+                        System.out.println("Limite de movimentações atingido.");
+                        break;
+                    }
+
+                    if (qtdCategorias == 0) {
+                        System.out.println("Nenhuma categoria cadastrada. Cadastre uma categoria antes.");
+                        break;
+                    }
+
+                    int idMov = qtdMovimentacoes + 1;
                     double valor;
                     LocalDate data = LocalDate.now();
-                    int categoriaSelec =-1;
-                    String descricao = "";
-                    //Usuario user- usuario que user logou
+                    String descricao;
 
-                    System.out.println("Insira o valor");
+                    System.out.print("Valor: ");
                     if (entrada.hasNextDouble()) {
                         valor = entrada.nextDouble();
                     } else {
                         System.out.println("Valor inválido! Cadastro cancelado.");
-                        entrada.next(); // limpa a entrada inválida 
-                        break; 
+                        entrada.next();
+                        break;
                     }
 
-                    //listar categorias (a definir se em loop do array do main ou chamada de função)
-                    //escolher categoria com base nisso
-                    
-                    System.out.println("Insira uma descrição");
-                    entrada.nextLine(); //limpar o \n do nextDouble()
+                    listarCategorias();
+                    System.out.print("Escolha o número da categoria: ");
+                    if (!entrada.hasNextInt()) {
+                        System.out.println("Entrada inválida! Cadastro cancelado.");
+                        entrada.next();
+                        break;
+                    }
+                    int categoriaSelec = entrada.nextInt();
+                    if (categoriaSelec < 1 || categoriaSelec > qtdCategorias) {
+                        System.out.println("Categoria inválida! Cadastro cancelado.");
+                        break;
+                    }
+                    Categoria categ = categorias[categoriaSelec - 1];
+
+                    entrada.nextLine(); // limpar \n do nextInt()
+                    System.out.print("Descrição: ");
                     descricao = entrada.nextLine();
 
-                    /*Movimentacao mov = new Movimentacao(int idMov, String descricao, double valor,
-                    LocalDate data, Usuario user, Categoria categ);*/
-                    
-                    /*for (int i = 0; i < movimentacoes.length; i++) {
-                        if (movimentacoes[i] == null) {
-                            movimentacoes[i] = mov;
-                            break;
-                        }
-                    }
+                    movimentacoes[qtdMovimentacoes] = new Movimentacao(idMov, descricao, valor, data, null, categ);
+                    qtdMovimentacoes++;
 
-                    System.out.println("Erro. Você atingiu o seu limite de cadastros.");
-                        */
+                    System.out.println("Movimentação cadastrada com sucesso!");
                     break;
 
                 case 4:
