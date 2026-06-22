@@ -39,53 +39,7 @@ public class Main {
 
                 case 3:
                     System.out.println("\n=== CADASTRO DE MOVIMENTAÇÃO ===");
-
-                    if (qtdMovimentacoes >= movimentacoes.length) {
-                        System.out.println("Limite de movimentações atingido.");
-                        break;
-                    }
-
-                    if (qtdCategorias == 0) {
-                        System.out.println("Nenhuma categoria cadastrada. Cadastre uma categoria antes.");
-                        break;
-                    }
-
-                    int idMov = qtdMovimentacoes + 1;
-                    double valor;
-                    LocalDate data = LocalDate.now();
-                    String descricao;
-
-                    System.out.print("Valor: ");
-                    if (entrada.hasNextDouble()) {
-                        valor = entrada.nextDouble();
-                    } else {
-                        System.out.println("Valor inválido! Cadastro cancelado.");
-                        entrada.next();
-                        break;
-                    }
-
-                    listarCategorias();
-                    System.out.print("Escolha o número da categoria: ");
-                    if (!entrada.hasNextInt()) {
-                        System.out.println("Entrada inválida! Cadastro cancelado.");
-                        entrada.next();
-                        break;
-                    }
-                    int categoriaSelec = entrada.nextInt();
-                    if (categoriaSelec < 1 || categoriaSelec > qtdCategorias) {
-                        System.out.println("Categoria inválida! Cadastro cancelado.");
-                        break;
-                    }
-                    Categoria categ = categorias[categoriaSelec - 1];
-
-                    entrada.nextLine(); // limpar \n do nextInt()
-                    System.out.print("Descrição: ");
-                    descricao = entrada.nextLine();
-
-                    movimentacoes[qtdMovimentacoes] = new Movimentacao(idMov, descricao, valor, data, null, categ);
-                    qtdMovimentacoes++;
-
-                    System.out.println("Movimentação cadastrada com sucesso!");
+                    cadastrarMovimentacao(entrada);
                     break;
 
                 case 4:
@@ -97,7 +51,7 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("Listagem de Movimentações");
+                    listarMovimentacoes();
                     break;
 
                 case 0:
@@ -125,7 +79,6 @@ public class Main {
         System.out.print("Nome da categoria: ");
         String nome = entrada.nextLine();
 
-        // Verifica duplicidade
         for (int i = 0; i < qtdCategorias; i++) {
 
             if (categorias[i].getNome().equalsIgnoreCase(nome)) {
@@ -157,6 +110,71 @@ public class Main {
         for (int i = 0; i < qtdCategorias; i++) {
 
             System.out.println(categorias[i]);
+            System.out.println("--------------------");
+        }
+    }
+
+    public static void cadastrarMovimentacao(Scanner entrada) {
+
+        if (qtdMovimentacoes >= movimentacoes.length) {
+            System.out.println("Limite de movimentações atingido.");
+            return;
+        }
+
+        if (qtdCategorias == 0) {
+            System.out.println("Nenhuma categoria cadastrada. Cadastre uma categoria antes.");
+            return;
+        }
+
+        int idMov = qtdMovimentacoes + 1;
+        double valor;
+        LocalDate data = LocalDate.now();
+        String descricao;
+
+        System.out.print("Valor: ");
+        if (entrada.hasNextDouble()) {
+            valor = entrada.nextDouble();
+        } else {
+            System.out.println("Valor inválido! Cadastro cancelado.");
+            entrada.next();
+            return;
+        }
+
+        listarCategorias();
+        System.out.print("Escolha o número da categoria: ");
+        if (!entrada.hasNextInt()) {
+            System.out.println("Entrada inválida! Cadastro cancelado.");
+            entrada.next();
+            return;
+        }
+        int categoriaSelec = entrada.nextInt();
+        if (categoriaSelec < 1 || categoriaSelec > qtdCategorias) {
+            System.out.println("Categoria inválida! Cadastro cancelado.");
+            return;
+        }
+        Categoria categ = categorias[categoriaSelec - 1];
+
+        entrada.nextLine();
+        System.out.print("Descrição: ");
+        descricao = entrada.nextLine();
+
+        movimentacoes[qtdMovimentacoes] = new Movimentacao(idMov, descricao, valor, data, null, categ);
+        qtdMovimentacoes++;
+
+        System.out.println("Movimentação cadastrada com sucesso!");
+    }
+
+    public static void listarMovimentacoes() {
+
+        if (qtdMovimentacoes == 0) {
+            System.out.println("Nenhuma movimentação cadastrada.");
+            return;
+        }
+
+        System.out.println("\n=== MOVIMENTAÇÕES CADASTRADAS ===");
+
+        for (int i = 0; i < qtdMovimentacoes; i++) {
+            System.out.println(movimentacoes[i]);
             System.out.println("--------------------");
         }
     }
