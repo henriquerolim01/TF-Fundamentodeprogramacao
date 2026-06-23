@@ -10,8 +10,8 @@
 |Henrique Rolim   |25280332  |
 |Rodrigo Bacchin  |25200604  |
 
-## Descrição
-Projeto desenvolvido para a disciplina de Fundamentos de Programação, com o objetivo de auxiliar usuários no controle de receitas e despesas, permitindo o gerenciamento financeiro de forma simples e organizada.
+## Descrição Geral do Sistema
+O projeto consiste em um Sistema de Controle Financeiro Pessoal desenvolvido em Java. O sistema será executado em terminal e utilizará conceitos fundamentais de programação orientada a objetos, incluindo classes, objetos, composição, vetores de objetos, métodos, estruturas condicionais e estruturas de repetição.
 
 ## Objetivos
 - Registrar receitas e despesas.
@@ -19,6 +19,7 @@ Projeto desenvolvido para a disciplina de Fundamentos de Programação, com o ob
 - Consultar informações financeiras.
 - Gerar relatórios de gastos.
 - Auxiliar o usuário no controle financeiro pessoal.
+- Aplicar os conceitos estudados na disciplina.
 
 ## Primeiro Passos
 ### 1. Antes de começar a programar, atualize sua cópia local:
@@ -51,3 +52,69 @@ git add .
 git commit -m "Descrição da alteração"
 git push origin main
 ```
+
+# Estrutura do Projeto
+
+## Classes Principais
+
+### Usuario
+
+Representa o usuário do sistema.
+
+**Atributos:**
+- nome
+- idade
+- genero
+
+### Conta
+Representa uma conta financeira pertencente a um usuário.
+
+**Atributos**
+- Usuario
+- status
+- id
+- saldo
+- limite
+- banco
+
+**Composição**
+- Uma conta pertence a um usuário.
+
+### Categoria
+Representa uma categoria de movimentação financeira.
+
+**Atributos**
+- nome
+- tipo
+- observacoes
+
+### Movimentação
+Representa uma movimentação financeira.
+
+**Atributos**
+- conta
+- data
+- id
+- categoria
+- valor
+- observacoes
+
+**Composição**
+- Uma movimentação pertence a uma conta.
+- Uma movimentação pertence a uma categoria.
+
+### GerenciadorCategorias
+Responsável pelo gerenciamento das categorias cadastradas.
+**Funcionalidades:**
+- Cadastro de categoria
+- Listagem de categorias
+- Busca de categoria
+- Edição de categoria
+
+# Diagrama de Classes
+
+( INSERIR O DIAGRAMA QUANDO ESTIVER PRONTO)
+
+---
+
+
