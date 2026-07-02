@@ -7,6 +7,7 @@ public class Main {
     private static int qtdCategorias = 0;
     private static Movimentacao[] movimentacoes = new Movimentacao[30];
     private static int qtdMovimentacoes = 0;
+    private static Conta conta = new Conta(null, true, 1, 1000.0, 500.0, "Banco X");
 
     public static void main(String[] args) {
 
@@ -39,7 +40,7 @@ public class Main {
 
                 case 3:
                     System.out.println("\n=== CADASTRO DE MOVIMENTAÇÃO ===");
-                    cadastrarMovimentacao(entrada);
+                    cadastrarMovimentacao(entrada, conta);
                     break;
 
                 case 4:
@@ -114,7 +115,7 @@ public class Main {
         }
     }
 
-    public static void cadastrarMovimentacao(Scanner entrada) {
+    public static void cadastrarMovimentacao(Scanner entrada, Conta conta) {
 
         if (qtdMovimentacoes >= movimentacoes.length) {
             System.out.println("Limite de movimentações atingido.");
@@ -128,7 +129,7 @@ public class Main {
 
         int idMov = qtdMovimentacoes + 1;
         double valor;
-        LocalDate data = LocalDate.now();
+        LocalDate data;
         String descricao;
 
         System.out.print("Valor: ");
@@ -137,6 +138,15 @@ public class Main {
         } else {
             System.out.println("Valor inválido! Cadastro cancelado.");
             entrada.next();
+            return;
+        }
+
+        entrada.nextLine();
+        System.out.print("Data (AAAA-MM-DD): ");
+        try {
+            data = LocalDate.parse(entrada.nextLine());
+        } catch (Exception e) {
+            System.out.println("Data inválida! Cadastro cancelado.");
             return;
         }
 
@@ -158,7 +168,7 @@ public class Main {
         System.out.print("Descrição: ");
         descricao = entrada.nextLine();
 
-        movimentacoes[qtdMovimentacoes] = new Movimentacao(idMov, descricao, valor, data, null, categ);
+        movimentacoes[qtdMovimentacoes] = new Movimentacao(idMov, descricao, valor, data, conta, categ);
         qtdMovimentacoes++;
 
         System.out.println("Movimentação cadastrada com sucesso!");

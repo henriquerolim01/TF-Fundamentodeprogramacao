@@ -7,18 +7,18 @@ public class Movimentacao {
     private double valor;
     private LocalDate data;
 
-    private Usuario usuario;
+    private Conta conta;
     private Categoria categoria;
 
     public Movimentacao(int id, String descricao, double valor,
-                        LocalDate data, Usuario usuario,
+                        LocalDate data, Conta conta,
                         Categoria categoria) {
 
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
-        this.usuario = usuario;
+        this.conta = conta;
         this.categoria = categoria;
     }
 
@@ -38,8 +38,8 @@ public class Movimentacao {
         return data;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Conta getConta() {
+        return conta;
     }
 
     public Categoria getCategoria() {
@@ -54,6 +54,6 @@ public class Movimentacao {
                "\nData: " + data +
                "\nCategoria: " + categoria.getNome() +
                "\nTipo: " + categoria.getTipo() +
-               "\nUsuário: " + usuario.getNome();
+               "\nConta: " + conta.getId();
     }
 }
