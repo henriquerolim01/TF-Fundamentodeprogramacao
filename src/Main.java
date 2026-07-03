@@ -23,6 +23,7 @@ public class Main {
             System.out.println("4 - Listar Usuários");
             System.out.println("5 - Listar Categorias");
             System.out.println("6 - Listar Movimentações");
+            System.out.println("7 - Gerar Relatório");
             System.out.println("0 - Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -53,6 +54,10 @@ public class Main {
 
                 case 6:
                     listarMovimentacoes();
+                    break;
+
+                case 7:
+                    gerarRelatorio();
                     break;
 
                 case 0:
@@ -141,14 +146,40 @@ public class Main {
             return;
         }
 
-        entrada.nextLine();
-        System.out.print("Data (AAAA-MM-DD): ");
-        try {
-            data = LocalDate.parse(entrada.nextLine());
-        } catch (Exception e) {
-            System.out.println("Data inválida! Cadastro cancelado.");
+        System.out.print("Ano: ");
+        if (!entrada.hasNextInt()) {
+            System.out.println("Ano inválido! Cadastro cancelado.");
+            entrada.next();
             return;
         }
+        int ano = entrada.nextInt();
+
+        System.out.print("Mês: ");
+        if (!entrada.hasNextInt()) {
+            System.out.println("Mês inválido! Cadastro cancelado.");
+            entrada.next();
+            return;
+        }
+        int mes = entrada.nextInt();
+
+        System.out.print("Dia: ");
+        if (!entrada.hasNextInt()) {
+            System.out.println("Dia inválido! Cadastro cancelado.");
+            entrada.next();
+            return;
+        }
+        int dia = entrada.nextInt();
+
+        if (mes < 1 || mes > 12) {
+            System.out.println("Mês inválido! Cadastro cancelado.");
+            return;
+        }
+        if (dia < 1 || dia > 31) {
+            System.out.println("Dia inválido! Cadastro cancelado.");
+            return;
+        }
+
+        data = LocalDate.of(ano, mes, dia);
 
         listarCategorias();
         System.out.print("Escolha o número da categoria: ");
@@ -187,5 +218,35 @@ public class Main {
             System.out.println(movimentacoes[i]);
             System.out.println("--------------------");
         }
+    }
+
+    public static void gerarRelatorio() {
+
+        if (qtdMovimentacoes == 0) {
+            System.out.println("Nenhuma movimentação cadastrada.");
+            return;
+        }
+
+        double totalReceitas = 0;
+        double totalDespesas = 0;
+
+        for (int i = 0; i < qtdMovimentacoes; i++) {
+            Movimentacao m = movimentacoes[i];
+            Categoria c = m.getCategoria();
+
+            System.out.println(m);
+            System.out.println("--------------------");
+
+            if (c.getTipo().equalsIgnoreCase("Receita")) {
+                totalReceitas += m.getValor();
+            } else if (c.getTipo().equalsIgnoreCase("Despesa")) {
+                totalDespesas += m.getValor();
+            }
+        }
+
+        System.out.println("\n=== RELATÓRIO ===");
+        System.out.println("Total de receitas: R$ " + String.format("%.2f", totalReceitas));
+        System.out.println("Total de despesas: R$ " + String.format("%.2f", totalDespesas));
+        System.out.println("Saldo: R$ " + String.format("%.2f", totalReceitas - totalDespesas));
     }
 }
