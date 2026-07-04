@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
+// Classe responsável por gerenciar todas as categorias cadastradas
 public class GerenciadorCategorias {
 
+    // Vetor que armazena as categorias cadastradas
     private Categoria[] categorias;
+    // Controla a quantidade de categorias cadastradas
     private int qtdCategorias;
 
     public GerenciadorCategorias() {
@@ -10,8 +13,10 @@ public class GerenciadorCategorias {
         qtdCategorias = 0;
     }
 
+    // Realiza o cadastro de uma nova categoria
     public void cadastrarCategoria(Scanner entrada) {
 
+        // Verifica se o vetor já atingiu sua capacidade máxima
         if (qtdCategorias >= categorias.length) {
             System.out.println("Limite de categorias atingido.");
             return;
@@ -43,6 +48,7 @@ public class GerenciadorCategorias {
         System.out.println("Categoria cadastrada com sucesso!");
     }
 
+    // Lista todas as categorias cadastradas
     public void listarCategorias() {
 
         if (qtdCategorias == 0) {
@@ -59,6 +65,7 @@ public class GerenciadorCategorias {
         }
     }
 
+    // Procura uma categoria pelo nome
     public Categoria buscarCategoria(String nome) {
 
         for (int i = 0; i < qtdCategorias; i++) {
@@ -71,6 +78,7 @@ public class GerenciadorCategorias {
         return null;
     }
 
+    // Permite alterar os dados de uma categoria já cadastrada
     public void editarCategoria(Scanner entrada) {
 
         if (qtdCategorias == 0) {
