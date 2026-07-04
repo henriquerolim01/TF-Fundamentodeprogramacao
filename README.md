@@ -160,7 +160,7 @@ Durante o desenvolvimento foram utilizadas as seguintes fontes:
 - https://docs.oracle.com/javase/tutorial/
 - https://www.w3schools.com/java/
 - https://stackoverflow.com/
-- - https://github.com/
+- https://github.com/
 - Material disponibilizado pela professora na disciplina.
 
 ---
