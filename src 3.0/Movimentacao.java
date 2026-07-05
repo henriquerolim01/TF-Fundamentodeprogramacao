@@ -1,15 +1,19 @@
 import java.time.LocalDate;
 
+// Classe responsável por representar uma movimentação financeira
 public class Movimentacao {
 
+    // Atributos da movimentação
     private int id;
     private String descricao;
     private double valor;
     private LocalDate data;
 
+    // Relacionamentos da movimentação
     private Usuario usuario;
     private Categoria categoria;
 
+    // Construtor para inicializar todos os atributos
     public Movimentacao(int id, String descricao, double valor,
                         LocalDate data, Usuario usuario,
                         Categoria categoria) {
@@ -22,6 +26,7 @@ public class Movimentacao {
         this.categoria = categoria;
     }
 
+    // Métodos Getters
     public int getId() {
         return id;
     }
@@ -46,6 +51,7 @@ public class Movimentacao {
         return categoria;
     }
 
+    // Retorna as informações da movimentação em formato de texto
     @Override
     public String toString() {
         return "ID: " + id +

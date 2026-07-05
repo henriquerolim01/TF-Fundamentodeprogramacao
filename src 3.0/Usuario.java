@@ -1,13 +1,18 @@
+// Classe responsável por representar um usuário do sistema
 public class Usuario {
+
+    // Atributos do usuário
     private String nome;
     private int idade;
     private char genero;
     private String email;
     private String senha;
 
+    // Construtor vazio
     public Usuario() {
     }
 
+    // Construtor para inicializar todos os atributos
     public Usuario(String nome, int idade, char genero, String email, String senha) {
         this.nome = nome;
         this.idade = idade;
@@ -16,6 +21,7 @@ public class Usuario {
         this.senha = senha;
     }
 
+    // Métodos Getters
     public String getNome() {
         return nome;
     }
@@ -35,6 +41,7 @@ public class Usuario {
         return senha;
     }
 
+    // Métodos Setters
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -53,8 +60,12 @@ public class Usuario {
         this.senha = senha;
     }
 
+    // Retorna as informações do usuário em formato de texto
+    @Override
     public String toString() {
-        return "Nome:" + nome + "; Idade: " + idade + "; Genero: " + genero;
+        return "Nome: " + nome +
+               "\nIdade: " + idade +
+               "\nGênero: " + genero +
+               "\nE-mail: " + email;
     }
-
 }

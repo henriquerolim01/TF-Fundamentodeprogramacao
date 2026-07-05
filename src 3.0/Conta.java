@@ -1,15 +1,23 @@
+// Classe responsável por representar uma conta financeira do usuário
 public class Conta {
+
+    // Atributos da conta
     private Usuario usuario;
+
+    // Indica se a conta está ativa (true) ou inativa (false)
     private boolean status;
+
     private int id;
     private double saldo;
     private double limite;
     private String banco;
 
+    // Construtor vazio
     public Conta() {
 
     }
 
+    // Construtor para inicializar todos os atributos
     public Conta(Usuario usuario, boolean status, int id, double saldo, double limite, String banco) {
         this.usuario = usuario;
         this.status = status;
@@ -19,6 +27,7 @@ public class Conta {
         this.banco = banco;
     }
 
+    // Métodos Getters
     public Usuario getUsuario() {
         return usuario;
     }
@@ -43,6 +52,7 @@ public class Conta {
         return banco;
     }
 
+    // Métodos Setters
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -53,7 +63,6 @@ public class Conta {
 
     public void setId(int id) {
         this.id = id;
-
     }
 
     public void setSaldo(double saldo) {
@@ -68,9 +77,15 @@ public class Conta {
         this.banco = banco;
     }
 
+    // Retorna as informações da conta em formato de texto
+    @Override
     public String toString() {
-        return "Usuario: " + usuario + " Status: " + status + " ID: " + id + " Saldo: " + saldo + " Limite: " + limite
-                + " Banco: " + banco;
+        return "Usuário: " + usuario +
+               "\nStatus: " + status +
+               "\nID: " + id +
+               "\nSaldo: " + saldo +
+               "\nLimite: " + limite +
+               "\nBanco: " + banco;
     }
 
 }
