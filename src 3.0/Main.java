@@ -52,6 +52,7 @@ public class Main {
 
     }
 
+    // Realiza o cadastro de um novo usuário
     private static void cadastraUsuario() {
         String nome;
         int idade;
@@ -98,6 +99,7 @@ public class Main {
 
     }
 
+    // Efetua o login do usuário
     public static String login() {
         Scanner leDados = new Scanner(System.in);
         String email;
@@ -274,6 +276,7 @@ public class Main {
         // entrada.close();
     }
 
+    // Exibe o menu principal do sistema
     private static void menu() {
         Scanner scanf = new Scanner(System.in);
         int num;
@@ -300,6 +303,7 @@ public class Main {
 
     }
 
+    // Cadastra uma nova categoria
     public static void cadastrarCategoria(Scanner entrada) {
         String tipo;
         if (qtdCategorias >= categorias.length) {
@@ -335,6 +339,7 @@ public class Main {
         System.out.println("Categoria cadastrada com sucesso!");
     }
 
+    // Lista todas as categorias cadastradas
     public static void listarCategorias() {
 
         if (qtdCategorias == 0) {
@@ -351,6 +356,7 @@ public class Main {
         }
     }
 
+    // Cadastra uma nova movimentação financeira
     public static double cadastrarMovimentacao(Scanner entrada, String nome) {
         int i;
         double valor;
@@ -445,6 +451,7 @@ public class Main {
         return valor;
     }
 
+    // Lista as movimentações do usuário logado
     public static void listarMovimentacoes(String nome) {
 
         if (qtdMovimentacoes == 0) {
@@ -462,6 +469,7 @@ public class Main {
         }
     }
 
+    // Gera um relatório filtrado por categoria e período
     public static void exibirRelatorio(String nome) {
         Scanner entrada = new Scanner(System.in);
         int contador = 0;
