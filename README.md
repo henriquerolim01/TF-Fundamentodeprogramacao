@@ -69,6 +69,8 @@ A classe Movimentacao possui composição com Conta e Categoria, pois toda movim
 
 A classe GerenciadorCategorias é responsável por controlar o cadastro, busca, edição e listagem das categorias.
 
+Link do vídeo: https://www.youtube.com/watch?v=Uc4kiNaFOBI
+
 ---
 
 # Estrutura do Projeto
