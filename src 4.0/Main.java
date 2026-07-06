@@ -67,38 +67,48 @@ public class Main {
         String senha;
         int i;
         Scanner leUsuario = new Scanner(System.in);
+
         System.out.println("Digite seu nome:");
         nome = leUsuario.nextLine();
         do {
             System.out.println("Digite sua idade:");
             idade = leUsuario.nextInt();
         } while (idade < 18);
+
         do {
             System.out.println("Digite seu gênero (M/F)");
             genero = leUsuario.next().charAt(0);
         } while (!(genero == 'M' || genero == 'F'));
+
         System.out.println("Digite seu e-mail");
         email = verificaEmail();
+
         System.out.println("Digite sua senha");
         senha = verificaSenha();
+
         System.out.println("senha" + senha);
         i = verificaIndice();
+
         usuario[i] = new Usuario(nome, idade, genero, email, senha);
         boolean status = true;
         int id = i;
+        
         System.out.println("Digite seu saldo");
         double saldo = leUsuario.nextDouble();
-        ;
+        
         System.out.println("Digite o limite da sua conta ");
         double limite = leUsuario.nextDouble();
-        ;
+        leUsuario.nextLine();
+        
         System.out.println("Digite seu banco");
         String banco = leUsuario.nextLine();
+        
         int j = 0;
         do {
             j++;
 
         } while (!(conta[j] == null));
+
         conta[j] = new Conta(usuario[i], status, id, saldo, limite, banco);
         System.out.println(conta[j]);
         System.out.println("Usuario cadastrado com sucesso!");
@@ -114,14 +124,17 @@ public class Main {
         boolean verificaEmail;
         boolean verificaSenha;
         int contador = 0;
+
         do {
             if (contador > 0) {
                 System.out.println("Credenciais incorretas");
             }
             System.out.println("Digite seu email");
             email = leDados.nextLine();
+
             System.out.println("Digite sua senha");
             senha = leDados.nextLine();
+
             verificaEmail = procuraEmail(email);
             verificaSenha = procuraSenha(senha);
             contador++;
@@ -292,6 +305,7 @@ public class Main {
     private static void menu() {
         Scanner scanf = new Scanner(System.in);
         int num;
+
         do {
             System.out.println("1 - Cadastrar usuario, 2 - fazer login, 3 - Sair");
 
@@ -372,12 +386,14 @@ public class Main {
     public static double cadastrarMovimentacao(Scanner entrada, String nome) {
         int i;
         double valor;
+
         for (i = 0; i < usuario.length; i++) {
             if (usuario[i].getNome().equals(nome)) {
                 break;
             }
 
         }
+
         if (qtdMovimentacoes >= movimentacoes.length) {
             System.out.println("Limite de movimentações atingido.");
             return valor = 0.0;
@@ -403,6 +419,7 @@ public class Main {
             entrada.next();
             return valor = 0.0;
         }
+
         System.out.print("Ano: ");
         if (!entrada.hasNextInt()) {
             System.out.println("Ano inválido! Cadastro cancelado.");
@@ -431,6 +448,7 @@ public class Main {
             System.out.println("Mês inválido! Cadastro cancelado.");
             return valor = 0.0;
         }
+
         if (dia < 1 || dia > 31) {
             System.out.println("Dia inválido! Cadastro cancelado.");
             return valor = 0.0;
@@ -445,6 +463,7 @@ public class Main {
             entrada.next();
             return valor = 0.0;
         }
+
         int categoriaSelec = entrada.nextInt();
         if (categoriaSelec < 0 || categoriaSelec > qtdCategorias) {
             System.out.println("Categoria inválida! Cadastro cancelado.");
@@ -559,14 +578,18 @@ public class Main {
         usuario[0] = new Usuario("Jonas", 20, 'M', "jonas@gmail.com", "1235");
         usuario[1] = new Usuario("Carlos", 30, 'M', "carlos123@hotmail.com", "paodemel");
         usuario[2] = new Usuario("admin", 0, 'M', "admin@gmail.com", "adm321");
+
         conta[0] = new Conta(usuario[0], true, 0, 1000, 500, null);
+
         categorias[0] = new Categoria(0, "Alimentação", "Despesa");
         categorias[1] = new Categoria(1, "Conta de Luz", "Despesa");
         categorias[2] = new Categoria(2, "Salário", "Receita");
+
         for (int i = 0; i < categorias.length; i++) {
             if (categorias[i] != null)
                 qtdCategorias++;
         }
+
         menu();
     }
 
