@@ -537,7 +537,7 @@ public class Main {
             System.out.println("Digite a data de inicio do relatório (YYYY-mm-dd)");
 
             String inicio = entrada.nextLine();
-            String lixo = entrada.nextLine();
+            
             System.out.println("Digite a data de fim do relatório (YYYY-mm-dd)");
             String fim = entrada.nextLine();
 
