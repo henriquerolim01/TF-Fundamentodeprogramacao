@@ -53,7 +53,7 @@ git push origin main
 
 # Diagrama de Classes
 
-( INSERIR O DIAGRAMA QUANDO ESTIVER PRONTO)
+![Diagrama de Classes](images/diagrama-classes.png)
 
 ## Explicação do Diagrama
 
